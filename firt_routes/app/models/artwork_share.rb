@@ -3,12 +3,12 @@ class ArtworkShare < ApplicationRecord
       uniqueness: { scope: :viewer_id, message: "Viewer has access already" }
     validates :viewer_id, presence: true
 
-    belongs_to :viewer
-      foreign_id: :viewer_id
+    belongs_to :viewer,
+      foreign_key: :viewer_id,
       class_name: :User
 
-    belongs_to :artwork
-      foreign_id: :artwork_id
+    belongs_to :artwork,
+      foreign_key: :artwork_id,
       class_name: :Artwork
 
 end

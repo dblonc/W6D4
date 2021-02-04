@@ -24,17 +24,16 @@ class UsersController < ApplicationController
     def update
         person = User.find(params[:id])
         if person.update(strong_params)
-            redirect_to person_url(person)
+            redirect_to user_url(person)
         else
             render json: user.errors.full_messages, status: :unprocessable_entity
         end
     end
 
     def destroy
-        debugger
         person = User.find(params[:id])
         person.destroy
-        redirect_to person_url
+        redirect_to user_url
     end
 
     private
